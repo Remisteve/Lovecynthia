@@ -3,114 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>My Love, My Valentine 💖</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&display=swap');
 
         body {
-            background: linear-gradient(135deg, #ff99cc, #ff66b2, #ff4d94);
-            color: #fff;
-            text-align: center;
-            font-family: 'Great Vibes', cursive;
-            padding: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .card {
-            background: linear-gradient(to bottom, #ffb3d9, #ff99cc);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-            display: inline-block;
-            max-width: 500px;
-            animation: fadeIn 2s ease-in-out;
-            position: relative;
-            border: 4px solid white;
-        }
-
-        h1 {
-            font-size: 45px;
-            font-family: 'Parisienne', cursive;
-            text-shadow: 2px 2px 5px rgba(255, 0, 102, 0.5);
-        }
-
-        .message {
-            font-size: 28px;
-            font-family: 'Parisienne', cursive;
-            color: #ff0066;
-            margin-top: 15px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-        @media (max-width: 768px) {
-    .container { 
-        width: 100%; 
-        padding: 10px;
-    }
-
-    .heart {
-        width: 20px;
-        height: 20px;
-    }
-
-    button {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
+    background: linear-gradient(135deg, #ff99cc, #ff66b2, #ff4d94);
+    color: #fff;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-        .countdown {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 15px 0;
-            color: #ff0055;
-        }
+.card {
+    background: linear-gradient(to bottom, #ffb3d9, #ff99cc);
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    max-width: 90%;
+    width: 500px;
+    animation: fadeIn 2s ease-in-out;
+    position: relative;
+    border: 4px solid white;
+    box-sizing: border-box;
+}
 
-        #secret-message {
-            display: none;
-            font-size: 24px;
-            margin-top: 20px;
-            color: #ff0044;
-        }
+h1 {
+    font-size: 45px;
+    font-family: 'Parisienne', cursive;
+    text-shadow: 2px 2px 5px rgba(255, 0, 102, 0.5);
+}
 
-        .buttons {
-            margin-top: 20px;
-        }
+.message {
+    font-size: 28px;
+    font-family: 'Parisienne', cursive;
+    color: #ff0066;
+    margin-top: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
 
-        button {
-            font-size: 20px;
-            padding: 12px 25px;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-            border-radius: 12px;
-            font-weight: bold;
-        }
+.countdown {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 15px 0;
+    color: #ff0055;
+}
 
-        .yes {
-            background-color: #ff3385;
-            color: white;
-            box-shadow: 2px 2px 10px rgba(255, 51, 133, 0.4);
-        }
+#secret-message {
+    display: none;
+    font-size: 24px;
+    margin-top: 20px;
+    color: #ff0044;
+}
 
-        .yes:disabled {
-            background-color: #ffb3d9;
-            cursor: not-allowed;
-        }
+.buttons {
+    margin-top: 20px;
+}
 
-        .no {
-            background-color: #ff1a75;
-            color: white;
-            position: absolute;
-            box-shadow: 2px 2px 10px rgba(255, 26, 117, 0.4);
-        }
+button {
+    font-size: 20px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    border-radius: 12px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 250px;
+}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+.yes {
+    background-color: #ff3385;
+    color: white;
+    box-shadow: 2px 2px 10px rgba(255, 51, 133, 0.4);
+}
 
-       /* Floating hearts animation */
+.yes:disabled {
+    background-color: #ffb3d9;
+    cursor: not-allowed;
+}
+
+.no {
+    background-color: #ff1a75;
+    color: white;
+    position: relative;
+    box-shadow: 2px 2px 10px rgba(255, 26, 117, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Floating hearts animation */
 @keyframes floatUp {
     0% {
         transform: translateY(0) scale(1);
@@ -148,6 +142,42 @@
 .heart:nth-child(9) { left: 85%; animation-duration: 2.6s; background-color: purple; }
 .heart:nth-child(10) { left: 90%; animation-duration: 3s; background-color: black; }
 .heart:nth-child(11) { left: 95%; animation-duration: 2.4s; background-color: orange; }
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        width: 95%;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .message {
+        font-size: 22px;
+    }
+
+    .countdown {
+        font-size: 18px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 10px 15px;
+        max-width: 200px;
+    }
+
+    .heart {
+        width: 20px;
+        height: 20px;
+    }
+}
 
 
     </style>
