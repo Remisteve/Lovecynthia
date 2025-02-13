@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Love, My Valentine 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #ff99cc, #ff66b2, #ff4d94);
+            color: #fff;
+            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card {
+            background: linear-gradient(to bottom, #ffb3d9, #ff99cc);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+            max-width: 500px;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            border: 4px solid white;
+        }
+
+        h1 {
+            font-size: 45px;
+            font-family: 'Parisienne', cursive;
+            text-shadow: 2px 2px 5px rgba(255, 0, 102, 0.5);
+        }
+
+        .message {
+            font-size: 28px;
+            font-family: 'Parisienne', cursive;
+            color: #ff0066;
+            margin-top: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .countdown {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #ff0055;
+        }
+
+        #secret-message {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+            color: #ff0044;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .yes {
+            background-color: #ff3385;
+            color: white;
+            box-shadow: 2px 2px 10px rgba(255, 51, 133, 0.4);
+        }
+
+        .yes:disabled {
+            background-color: #ffb3d9;
+            cursor: not-allowed;
+        }
+
+        .no {
+            background-color: #ff1a75;
+            color: white;
+            position: absolute;
+            box-shadow: 2px 2px 10px rgba(255, 26, 117, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+       /* Floating hearts animation */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-200px) scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-500px) scale(1);
+        opacity: 0;
+    }
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    clip-path: polygon(50% 0%, 100% 40%, 75% 100%, 50% 75%, 25% 100%, 0% 40%);
+    opacity: 0.8;
+    animation: floatUp 3s infinite ease-in-out;
+}
+
+.heart:nth-child(1) { left: 10%; animation-duration: 2.5s; background-color: pink; }
+.heart:nth-child(2) { left: 20%; animation-duration: 3s; background-color: red; }
+.heart:nth-child(3) { left: 30%; animation-duration: 2.8s; background-color: blue; }
+.heart:nth-child(4) { left: 40%; animation-duration: 3.2s; background-color: yellow; }
+.heart:nth-child(5) { left: 50%; animation-duration: 2.9s; background-color: green; }
+.heart:nth-child(6) { left: 60%; animation-duration: 3.1s; background-color: grey; }
+.heart:nth-child(7) { left: 70%; animation-duration: 2.7s; background-color: brown; }
+.heart:nth-child(8) { left: 80%; animation-duration: 3.3s; background-color: teal; }
+.heart:nth-child(9) { left: 85%; animation-duration: 2.6s; background-color: purple; }
+.heart:nth-child(10) { left: 90%; animation-duration: 3s; background-color: black; }
+.heart:nth-child(11) { left: 95%; animation-duration: 2.4s; background-color: orange; }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>14th February is for Us ❤️</h1>
+        <p class="message">Happy Valentine, sweetheart Cynthia Wangari! <br> Best wishes from Steve 💕</p>
+        <p class="countdown" id="countdown"></p>
+
+        <p id="secret-message"></p>
+
+        <div class="buttons">
+            <button class="yes" id="yes-btn" disabled>Yes 💕</button>
+            <button class="no">No ❌</button>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            let now = new Date();
+            let valentinesDay = new Date(now.getFullYear(), 1, 14, 0, 0, 0);
+            let timeLeft = valentinesDay - now;
+
+            if (timeLeft <= 0) {
+                document.getElementById("countdown").innerText = "Happy Valentine’s Day, My Love! 💘";
+                document.getElementById("yes-btn").disabled = false;
+
+                let message = document.getElementById("secret-message");
+                let date = now.getDate();
+
+                if (date === 14) {
+                    message.innerText = "Happy Valentine’s Day, baby! ❤️ I love you so much! Sweet girl";
+                    message.style.display = "block";
+                } else if (date === 15) {
+                    message.innerText = "Thank you for yesterday! It was fun and so sweet!";
+                    message.style.display = "block";
+                }
+            } else {
+                let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerText = `${days} days, ${hours} hrs, ${minutes} mins, ${seconds} secs left! ⏳`;
+            }
+        }
+
+        document.getElementById("yes-btn").addEventListener("click", function() {
+            alert("Shall we enjoy cozy nyama choma today, or we get fun we create some magic together? 😘💕");
+        });
+
+        setInterval(updateCountdown, 1000);
+
+        // Function to generate floating hearts
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+        document.addEventListener("DOMContentLoaded", function () {
+    let yesButton = document.querySelector(".yes");
+    let noButton = document.querySelector(".no");
+
+    noButton.style.position = "absolute"; // Ensure free movement
+    noButton.style.left = yesButton.offsetLeft + yesButton.offsetWidth + 20 + "px"; // Start in the same line
+    noButton.style.top = yesButton.offsetTop + "px"; // Align vertically
+
+    function moveButton() {
+        let maxX = window.innerWidth - noButton.offsetWidth - 20;
+        let maxY = window.innerHeight - noButton.offsetHeight - 20;
+
+        let newX = Math.floor(Math.random() * maxX);
+        let newY = Math.floor(Math.random() * maxY);
+
+        noButton.style.left = `${newX}px`;
+        noButton.style.top = `${newY}px`;
+    }
+
+    function checkProximity(event) {
+        let rect = noButton.getBoundingClientRect();
+        let distanceX = Math.abs(event.clientX - (rect.left + rect.width / 2));
+        let distanceY = Math.abs(event.clientY - (rect.top + rect.height / 2));
+
+        if (distanceX < 80 && distanceY < 50) {
+            moveButton();
+        }
+    }
+
+    // Move instantly when it's almost touched
+    document.addEventListener("mousemove", checkProximity);
+
+    // Ensure it stays inside the screen when resized
+    window.addEventListener("resize", function () {
+        let maxX = window.innerWidth - noButton.offsetWidth - 20;
+        let maxY = window.innerHeight - noButton.offsetHeight - 20;
+
+        let newX = Math.max(10, Math.min(maxX, noButton.offsetLeft));
+        let newY = Math.max(10, Math.min(maxY, noButton.offsetTop));
+
+        noButton.style.left = `${newX}px`;
+        noButton.style.top = `${newY}px`;
+    });
+});
+
+
+
+
+
+    </script>
+
+</body>
+</html>
